@@ -1,0 +1,37 @@
+.divCards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    place-content: center;
+    justify-content: space-around;
+    justify-items: center;
+    grid-gap: 1rem 0;
+  }
+
+/* .divCards{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;  
+} */
+
+button{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    background-color:mediumslateblue;
+}
+
+.logo{
+    position: relative;
+    right: 38em;
+ }
+
+
+img{
+    max-width: 98%;
+    max-height: 98%;
+    border-radius: 200px;
+    
+ }
+
+
+
+
