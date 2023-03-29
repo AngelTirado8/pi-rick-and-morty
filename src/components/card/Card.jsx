@@ -1,4 +1,5 @@
 import styles from "./Card.module.css"
+import { Link } from "react-router-dom";
 
 
 export default function Card(props) {
@@ -6,6 +7,8 @@ export default function Card(props) {
    return (
       
       <div>
+
+         
          
          <div className = {styles.card}>
 
@@ -13,7 +16,12 @@ export default function Card(props) {
          
          <h2>{props.name}</h2>
          <div className={styles.img}>
-         <img  src={props.image} alt="imagen not found" /> 
+
+         <Link to={`/detail/${props.id}`} >
+         <img  src={props.image} alt="imagen not found" />
+         </Link>
+
+
          </div>
             <div className={styles.letras}>
                <h2>{props.species}</h2>

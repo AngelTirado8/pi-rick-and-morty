@@ -17,6 +17,17 @@
     right: 112em;
  }
 
+.ul{
+    color: red;
+}
+
+.ul li{
+    color: red;
+    text-decoration: none;
+}
+
+
+
 
 
   

@@ -16,10 +16,23 @@ export default function SearchBar(props) {
 
    return (
       <div className={styles.searchbar}>
-      <input type='search' 
-      onChange={handleChange} />
+         <input
+        type="search"
+        onChange={handleChange}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            props.onSearch(character);
+          }
+        }}
+      />
       
-      <button className={styles.botonAgregar} onClick={()=> props.onSearch(character)}>Agregar</button> 
+      <button 
+         className={styles.botonAgregar} 
+         onClick={()=> props.onSearch(character)}>Agregar</button> 
+
+      <button 
+         onClick={() => props.removeAll(character)}
+         >Borrar</button>
       
       </div>
    );

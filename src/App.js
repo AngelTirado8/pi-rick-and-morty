@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Cards from './components/cards/Cards.jsx'
-import SearchBar from './components/searchbar/SearchBar'
-import characters, { Rick } from './data.js'
-
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navBar/Navbar.jsx'
+import About from './components/Vistas/About.jsx'
+import Card from './components/card/Card';
+import Detail from './components/Vistas/Detail.jsx'
+
 
 
 function App () {
@@ -16,8 +18,13 @@ function App () {
     .then((response) => response.json())
     .then((data) =>{
       if (data.name){
-        setCharacter((oldChars)=> [...oldChars,
-        data]);
+        const isDuplicate = characters.some((char) => char.id === data.id);
+        //aca valida que no este el id duplicado
+        if (!isDuplicate){
+        setCharacter((oldChars)=> [...oldChars, data]);
+        }else {
+          window.alert('El personaje ya esta en la lista');
+        }
       } else {
         window.alert('No hay personajes con ese ID');
       }
@@ -25,14 +32,28 @@ function App () {
 }
 
   const onClose= (id) =>{
+    
     setCharacter(characters.filter(char => char.id !== id));
   }
+
+  const removeAll = () =>{
+    setCharacter([]);
+  }
+
+   //boton randon aqui
+
+
   return (
     
     <div className='App' styles={{padding: '25px'}}>
-      <div>
-        <Navbar onSearch={onSearch}/>
-      </div>
+      
+      <Navbar onSearch={onSearch} removeAll={removeAll}/>
+      <Routes>
+        <Route path='/Home' element={<Cards />}/>
+        <Route path='/About' element={<About />}/>
+        <Route path='/Detail/:DetailId' element={<Detail />}/> 
+      </Routes>
+      
       
       {/* <div className={styles.logo}>
             <img  src={logo} width="5%"/>
