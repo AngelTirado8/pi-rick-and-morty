@@ -1,0 +1,28 @@
+.detail{
+    width: 100%;
+    height: calc(100vh - 80px);
+    font-family: ;
+    justify-content: center;
+    align-items: center;    
+}
+
+h1{
+    color: yellowgreen;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    
+}
+
+.detailContainer{
+    width: 50%;
+    backdrop-filter: blur(12.5px);
+    position: relative;
+    left: 25%;
+    margin-top: 200px;
+
+
+}
+
+
+
+
