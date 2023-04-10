@@ -44,7 +44,7 @@ export default function Detail(props) {
                       /> */}
 
                     <h2>Status: {character.status}</h2>
-                    <h2>spedie: {character.species}</h2>
+                    <h2>specie: {character.species}</h2>
                     <h2>Status: {character.gender}</h2>
                     <img src={character.image} alt="" />
                 </div>

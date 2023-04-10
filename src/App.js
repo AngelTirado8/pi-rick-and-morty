@@ -1,19 +1,35 @@
-
 import React, { useState } from "react";
 import "./App.css";
 import Cards from "./components/cards/Cards.jsx";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Menu from './components/navBar/Menu.jsx'
-import Login from "./components/login/Login.jsx"
+import Form from './components/Form/Form.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
 
 
 function App() {
   const [characters, setCharacter] = useState([]);
-  const location = useLocation();
+  const username = "mail@mail.com";
+  const password = "hola123";
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() =>{
+    !access && navigate('/');
+  }, [access])
+
+  function login (userData){
+    if(userData.username === username && userData.password === password){
+      setAccess(true);
+      navigate('/home');
+    }
+  }
   const onSearch = (character) => {
+    
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
@@ -48,15 +64,13 @@ function App() {
   return (
     <div className="App" styles={{ padding: "25px" }}>
       
-      {location.pathname !== '/' && <Menu onSearch={onSearch} removeAll={removeAll} />}
+      {pathname !== '/' && <Menu onSearch={onSearch} removeAll={removeAll} />}
       <hr/>
       <Routes>
-
-        <Route path="/" element={<Login />}/>
+        <Route path='/' element={<Form login={login}/>} />
 
         <Route
-          path="/"
-          element={<Cards characters={characters} onClose={onClose} />}
+          path="/home" element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/About" element={<About />} />
         <Route path="/Detail/:id" element={<Detail />} />
