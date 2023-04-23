@@ -8,11 +8,12 @@ export default function Cards(props) {
          <div className={styles.divCards}>
             {characters.map(character => 
                <Card 
+                  id={character.id}
+                  key={character.id}
                   name={character.name}
                   species={character.species}
                   gender={character.gender}
                   image={character.image}
-                  id={character.id}
                   onClose= {props.onClose}
                />)}
          </div>  

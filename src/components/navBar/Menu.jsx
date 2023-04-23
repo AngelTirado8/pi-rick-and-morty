@@ -68,6 +68,8 @@ function Menu(props) {
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/Favorites">Fovorites</Nav.Link>
+
           </Nav>
           <SearchBar onSearch={props.onSearch} removeAll={props.removeAll} />
         </Navbar.Collapse>

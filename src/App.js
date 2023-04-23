@@ -7,6 +7,7 @@ import Detail from './components/Detail/Detail.jsx'
 import Menu from './components/navBar/Menu.jsx'
 import Form from './components/Form/Form.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
+import Favorites from "./components/Favorites/Favorites";
 import { useEffect } from "react";
 
 
@@ -55,11 +56,6 @@ function App() {
     setCharacter([]);
   };
 
-  //boton randon aqui
-  // const randomCard = () => {
-  //   let randomNumber = Math.floor(Math.random() * characters.length);
-  //   setCharacter([characters[randomNumber]]);
-  // }
 
   return (
     <div className="App" styles={{ padding: "25px" }}>
@@ -72,8 +68,10 @@ function App() {
         <Route
           path="/home" element={<Cards characters={characters} onClose={onClose} />}
         />
-        <Route path="/About" element={<About />} />
-        <Route path="/Detail/:id" element={<Detail />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/detail/:id" element={<Detail />} />
+
       </Routes>
       
     </div>

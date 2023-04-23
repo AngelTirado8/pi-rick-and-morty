@@ -1,5 +1,6 @@
 import { useState } from "react";
-import validation from "./validation";
+import validation from "./validation.js"
+import style from "./Form.module.css"
 
 
 
@@ -9,10 +10,13 @@ const Form = ({login})=>{
         password: '',
     });
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({
+        
+    })
 
     const handleInputChange =(e)=>{
         setErrors(validation({
+            ...userData,
             [e.target.name]: e.target.value
         }));
 
@@ -59,7 +63,7 @@ const Form = ({login})=>{
                         <p>{errors.p2}</p>
                     )}
                 </div>
-                <button type="submi" onClick={handelSubmit}>LOGIN</button>
+                <button type="submit" onClick={handelSubmit}>LOGIN</button>
             </form>
         </div>
     )
