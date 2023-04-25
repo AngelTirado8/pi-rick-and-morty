@@ -71,11 +71,19 @@ export default function SearchBar(props) {
             Agregar
          </Button>
          <Button
+            className="me-2"
             variant="danger"
             size="sm"
             onClick={() => props.removeAll(character)}
          >
             Borrar
+         </Button>
+         <Button
+            variant="danger"
+            size="sm"
+            onClick={() => props.logout()}
+         >
+            Logout
          </Button>
          </div>
    );

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import rigth from '../../asset/rigth.png'
+import left from '../../asset/left.png'
 import validation from "./validation.js"
 import style from "./Form.module.css"
 
@@ -33,10 +35,15 @@ const Form = ({login})=>{
 
     return(
         <div>
+            
             <form>
-                <div>
-                    <label>Username</label>
-                    <input type="text" placeholder="username"
+                <img src={rigth} alt="AnimeLogin" className={style.imgrigth} />
+                <img src={left} alt="AnimeLogin" className={style.imgleft} />
+                <h1 className={style.bienvenido}> Welcome to <b>Rick and Morty</b>
+                </h1>
+                <div className={style.form}>
+            
+                    <input type="text" placeholder="Enter your username"
                     name="username" 
                     value={userData.username}
                     onChange={handleInputChange}
@@ -49,10 +56,11 @@ const Form = ({login})=>{
                         <p>{errors.e3}</p>
                     )}
                 </div>
+                
 
                 <div>
-                    <label>Password</label>
-                    <input type="password" placeholder="password"
+                    
+                    <input type="password" placeholder="Enter your password"
                     name="password" 
                     value={userData.password} 
                     onChange={handleInputChange}
@@ -64,6 +72,15 @@ const Form = ({login})=>{
                     )}
                 </div>
                 <button type="submit" onClick={handelSubmit}>LOGIN</button>
+                <div className={style.invitado}>
+                    <p className="login-con">Enter as a guest</p>
+                    <p>
+                    <b>Gmail</b>: mail@mail.com
+                    </p>
+                    <p>
+                    <b>Password</b>: hola123
+                    </p>
+                </div>
             </form>
         </div>
     )

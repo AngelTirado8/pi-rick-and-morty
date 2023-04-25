@@ -66,12 +66,12 @@ function Menu(props) {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/Favorites">Fovorites</Nav.Link>
 
           </Nav>
-          <SearchBar onSearch={props.onSearch} removeAll={props.removeAll} />
+          <SearchBar onSearch={props.onSearch} removeAll={props.removeAll} logout={props.logout}/>
         </Navbar.Collapse>
       </Container>
     </Navbar>

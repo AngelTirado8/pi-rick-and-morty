@@ -1,6 +1,6 @@
 import{ link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Card from '../card/Card'
+import Cards from "../cards/Cards"
 const Favorites = (props)=>{
 
     const { myFavorites } = props;
@@ -8,7 +8,7 @@ const Favorites = (props)=>{
         <div>
             <link to='/home' ><span>To Home</span></link>
             {myFavorites.map((character) =>{
-                return <Card
+                return <Cards
                 id={character.id}
                 key={character.id}
                 name={character.name}

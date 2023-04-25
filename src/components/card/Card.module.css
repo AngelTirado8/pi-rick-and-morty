@@ -9,8 +9,6 @@
     opacity: 0.9;
     justify-content: space-around;
     box-shadow:5px 5px 5px 5px black;
-
-
 }
 
 .card:hover{
@@ -27,11 +25,22 @@
     
     
 }
-
-
-button{
+/* button .fav .close{
     color:black;
     border-radius: 20px;    
+} */
+
+.fav{
+    color:black;
+    border-radius: 20px; 
+    right:5px;
+    
+    
+}
+
+.close{
+    color:black;
+    border-radius: 20px; 
 }
 
 button:hover{
